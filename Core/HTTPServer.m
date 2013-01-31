@@ -577,7 +577,10 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 {
 	HTTPLogTrace();
 	
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	NSAssert(dispatch_get_current_queue() == serverQueue, @"Invalid queue");
+#pragma clang diagnostic pop
 	
 	if (type)
 	{
@@ -612,8 +615,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 {
 	HTTPLogTrace();
 	
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	NSAssert(dispatch_get_current_queue() == serverQueue, @"Invalid queue");
-	
+#pragma clang diagnostic pop
+
 	if (netService)
 	{
 		NSNetService *theNetService = netService;
